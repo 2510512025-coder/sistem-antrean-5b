@@ -1,0 +1,14 @@
+=== SKENARIO POSITIF: pekerjaan normal (exit 0) ===
+exit status: 0
+
+=== SKENARIO NEGATIF: pekerjaan error (exit != 0) ===
+simulasi error
+exit status: 3
+
+=== ISI logs/status.log ===
+2026-11-15 16:40:23 | JOB=JOB-001 | STATUS=MENUNGGU | PID=- | EXIT=- | pekerjaan masuk: sleep 1
+2026-11-15 16:40:23 | JOB=JOB-001 | STATUS=BERJALAN | PID=806 | EXIT=- | proses dimulai
+2026-11-15 16:40:24 | JOB=JOB-001 | STATUS=BERHASIL | PID=806 | EXIT=0 | selesai normal
+2026-11-15 16:40:24 | JOB=JOB-002 | STATUS=MENUNGGU | PID=- | EXIT=- | pekerjaan masuk: bash -c echo "simulasi error"; exit 3
+2026-11-15 16:40:24 | JOB=JOB-002 | STATUS=BERJALAN | PID=815 | EXIT=- | proses dimulai
+2026-11-15 16:40:24 | JOB=JOB-002 | STATUS=GAGAL | PID=815 | EXIT=3 | exit status bukan nol
