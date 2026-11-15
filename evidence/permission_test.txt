@@ -1,0 +1,8 @@
+== Hak akses ==
+drwxrwx--- 2 root antrean 4096 Nov 15 08:37 /srv/antrean
+ls: cannot open file '/srv/antrean/antrean.txt': Permission denied
+== (+) petugas (anggota grup antrean) menulis ke antrean ==
+exit status: 0
+== (-) tamu (bukan anggota grup) menulis ke antrean ==
+bash: line 1: /srv/antrean/antrean.txt: Permission denied
+exit status: 1
