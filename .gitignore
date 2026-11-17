@@ -1,0 +1,7 @@
+logs/
+*.log
+*.tmp
+*.vdi
+*.vmdk
+*.ova
+data/antrean.txt
