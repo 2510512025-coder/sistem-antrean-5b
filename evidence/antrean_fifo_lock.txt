@@ -1,0 +1,31 @@
+# Bukti uji Anggota 2: worker antrean FIFO dan lock
+# Dijalankan: 2026-11-17 03:46:46
+
+## TC-02-P (positif): FIFO
+$ cat data/antrean.txt
+echo pekerjaan satu
+echo pekerjaan dua
+echo pekerjaan tiga
+$ ./scripts/worker.sh
+Memproses: echo pekerjaan satu
+pekerjaan satu
+Memproses: echo pekerjaan dua
+pekerjaan dua
+Memproses: echo pekerjaan tiga
+pekerjaan tiga
+Antrean kosong.
+$ echo $?
+0
+
+## TC-02-N (negatif): worker kedua ditolak
+$ ./scripts/worker.sh &
+Memproses: echo pekerjaan satu
+pekerjaan satu
+Memproses: sleep 60
+$ ./scripts/worker.sh
+Worker lain sedang berjalan. Ditolak.
+$ echo $?
+1
+Memproses: echo pekerjaan dua
+pekerjaan dua
+Antrean kosong.
